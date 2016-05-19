@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace TwitchConnectIRC
 {
@@ -20,13 +21,38 @@ namespace TwitchConnectIRC
             IrcClient irc = new IrcClient("irc.twitch.tv", 6667, username, oauth);
 
             irc.joinRoom(username);
+
+            //listening loop
             while (true)
             {
+                //grab the message from irc
                 string message = irc.readMessage();
+
+                //send whole, unadulterated message to the console
                 Console.WriteLine(message);
+
+                //grabs actual message, puts it in results[1]
+                string[] results = Regex.Split(message, @"PRIVMSG.+:");
+
+                //if it found a match...
+                if (results.Length > 1)
+                {
+                    //automatically respond to fart with toot
+                    if (results[1] == "fart")
+                    {
+                        irc.sendChatMessage("toot");
+                    }
+                }
+
+                //curls get the gurls
+                message = "";
+                Array.Clear(results, 0, results.Length);
             }
 	    }
 
+
+
+        //private auth
         private static void setCredentials()
         {
             try
