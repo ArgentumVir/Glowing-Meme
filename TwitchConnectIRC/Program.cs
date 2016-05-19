@@ -13,6 +13,8 @@ namespace TwitchConnectIRC
         private static string oauth;
         private static string configFile = "../../IRC_CONFIG.txt";
 
+        //silv sucks lol
+
 	    static void Main(string[] args)
 	    {
             
