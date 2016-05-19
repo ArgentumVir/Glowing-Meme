@@ -39,7 +39,7 @@ namespace TwitchConnectIRC
             }
             catch (Exception e)
             {
-                Console.WriteLine("Unable to read config file you're fucked. ");
+                Console.WriteLine("Unable to read config file. You're probably fucked. ");
                 Console.WriteLine(e.Message);
             }
 
