@@ -9,8 +9,8 @@ namespace TwitchConnectIRC
 {
     public class Program
     {
-        static private string username;
-        static private string oauth;
+        private static string username;
+        private static string oauth;
         private static string configFile = "../../IRC_CONFIG.txt";
 
 	    static void Main(string[] args)
