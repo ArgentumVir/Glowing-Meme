@@ -25,8 +25,6 @@ namespace TwitchConnectIRC
                 string message = irc.readMessage();
                 Console.WriteLine(message);
             }
-
-            Console.ReadKey();
 	    }
 
         private static void setCredentials()
